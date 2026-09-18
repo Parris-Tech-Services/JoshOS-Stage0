@@ -63,7 +63,7 @@ Use Stage 0 to cheaply design the visible product experience that later spans mu
 - [ ] recovery UI information architecture;
 - [ ] diagnostics/export UX.
 
-These are product prototypes; firmware/bootloader mechanisms live in MIDIVisualizer and canonical OS mechanisms live in AshFallen.
+These are product prototypes; firmware/bootloader mechanisms live in JoshBIOS and canonical OS mechanisms live in AshFallen.
 
 ## Stage 0E — prepare the Wayland port
 
@@ -97,7 +97,7 @@ This extraction should become thinner as the canonical implementation becomes ea
 
 ## Native-kernel convergence
 
-The independent Josh kernel is **already real and already in AshFallen**. It is not a future transfer2 Stage 3.
+The independent Josh kernel is **already real and already in AshFallen**. It is not a future JoshOS-Stage0 Stage 3.
 
 The long-term goal is for the same product concepts to run over:
 
@@ -105,13 +105,13 @@ The long-term goal is for the same product concepts to run over:
 2. Linux/Wayland production desktop;
 3. native Josh userspace/kernel.
 
-transfer2 contributes by proving concepts cheaply and handing them upstream.
+JoshOS-Stage0 contributes by proving concepts cheaply and handing them upstream.
 
 ## End state for this repo
 
 Choose deliberately between:
 
-- keeping transfer2 as a thin, automatically synced Stage-0/demo extraction; or
+- keeping JoshOS-Stage0 as a thin, automatically synced Stage-0/demo extraction; or
 - archiving it once AshFallen can provide the same rapid product iteration without duplication.
 
 There should never be two canonical Josh desktops.
