@@ -48,7 +48,7 @@ Prefer AshFallen as source of truth for:
 - architecture decisions;
 - final Stage-0 shell changes intended to ship in Josh OS.
 
-### Local to transfer2
+### Local to JoshOS-Stage0
 
 Keep local ownership for:
 
