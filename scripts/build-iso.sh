@@ -56,7 +56,9 @@ packages=(
   xorg-xsetroot
 )
 
-# The releng profile already provides virtualbox-guest-utils-nox. Adding the\n# full virtualbox-guest-utils package conflicts with it and breaks mkarchiso.\nfor package in "${packages[@]}"; do
+# The releng profile already provides virtualbox-guest-utils-nox. Adding the
+# full virtualbox-guest-utils package conflicts with it and breaks mkarchiso.
+for package in "${packages[@]}"; do
   grep -qxF "$package" "$GENERATED_PROFILE/packages.x86_64" || echo "$package" >> "$GENERATED_PROFILE/packages.x86_64"
 done
 
