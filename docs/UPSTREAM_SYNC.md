@@ -1,8 +1,8 @@
-# AshFallen ↔ transfer2 sync policy
+# AshFallen ↔ JoshOS-Stage0 sync policy
 
 `joshuaparris-max/AshFallen` is the canonical Josh OS integration repository.
 
-`Parris-Tech-Services/transfer2` is an extracted Stage-0 product/ISO workspace.
+`Parris-Tech-Services/JoshOS-Stage0` is an extracted Stage-0 product/ISO workspace.
 
 Because parts of this repository were copied from AshFallen, unmanaged duplication will create contradictory behaviour and documentation. This file defines how to avoid that.
 
@@ -12,7 +12,7 @@ Every overlapping file should be classified as one of:
 
 ### 1. Canonical copy
 
-AshFallen owns the content. transfer2 mirrors it.
+AshFallen owns the content. JoshOS-Stage0 mirrors it.
 
 Examples may include:
 
@@ -24,7 +24,7 @@ These should have automated drift detection.
 
 ### 2. Derived/generated
 
-The transfer2 version is generated/adapted from canonical input.
+The JoshOS-Stage0 version is generated/adapted from canonical input.
 
 Examples:
 
@@ -36,7 +36,7 @@ Do not hand-edit generated outputs.
 
 ### 3. Intentional fork
 
-transfer2 is experimenting independently.
+JoshOS-Stage0 is experimenting independently.
 
 Examples:
 
@@ -48,7 +48,7 @@ The divergence must be recorded and either:
 
 - promoted upstream;
 - discarded; or
-- explicitly retained as transfer2-only.
+- explicitly retained as JoshOS-Stage0-only.
 
 “Forgot to sync” is not an intentional fork.
 
@@ -62,8 +62,8 @@ Create a table covering at least:
 | generated token CSS | generated | regenerate | output formatting only |
 | `shell/` | AshFallen product concepts | selective promote/sync | experiments allowed temporarily |
 | `scripts/build-iso.sh` | AshFallen product ISO | deliberate comparison | repo metadata/extraction packaging |
-| product docs | AshFallen | links/summaries | transfer2-specific notes only |
-| extraction CI | transfer2 | local | expected |
+| product docs | AshFallen | links/summaries | JoshOS-Stage0-specific notes only |
+| extraction CI | JoshOS-Stage0 | local | expected |
 
 ## Drift CI
 
@@ -79,12 +79,12 @@ Do not silently auto-merge upstream during CI.
 
 ## Promotion workflow
 
-For a successful transfer2 experiment:
+For a successful JoshOS-Stage0 experiment:
 
 1. describe the concept and evidence;
 2. port the smallest coherent change to AshFallen;
 3. validate canonical CI;
-4. update transfer2 from canonical;
+4. update JoshOS-Stage0 from canonical;
 5. remove local divergence unless it remains intentionally experimental.
 
 ## Version marker
@@ -109,11 +109,11 @@ That is exactly the kind of drift this policy exists to make visible.
 
 Eventually choose one of two clean states:
 
-### A. transfer2 remains useful
+### A. JoshOS-Stage0 remains useful
 
 Keep it as a deliberately thin extraction whose canonical inputs are synced/generated.
 
-### B. transfer2 has served its purpose
+### B. JoshOS-Stage0 has served its purpose
 
 Archive it once the canonical product workflow in AshFallen is faster and clearer than maintaining a second live-image repo.
 
