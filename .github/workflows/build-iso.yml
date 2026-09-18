@@ -31,6 +31,8 @@ jobs:
           bash -n scripts/check-network-platform.sh
           bash -n iso/overlay/usr/local/bin/josh-network-check
           bash -n iso/overlay/usr/local/bin/josh-wifi
+          python -m py_compile iso/overlay/usr/local/lib/josh-os/network-control.py
+          grep -q "/api/network/status" shell/apps.js
           grep -q "networkmanager" scripts/build-iso.sh
           grep -q "ca-certificates-mozilla" scripts/build-iso.sh
           grep -q "NetworkManager.service" scripts/build-iso.sh
