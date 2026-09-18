@@ -24,6 +24,7 @@ jobs:
       - name: Validate generated shell assets and internet platform
         run: |
           bash -n scripts/build-iso.sh
+          bash -n scripts/check-network-platform.sh
           bash -n iso/overlay/usr/local/bin/josh-network-check
           bash -n iso/overlay/usr/local/bin/josh-wifi
           grep -q "networkmanager" scripts/build-iso.sh
