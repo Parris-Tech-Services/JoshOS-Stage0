@@ -50,14 +50,13 @@ packages=(
   noto-fonts
   openbox
   ttf-dejavu
-  virtualbox-guest-utils
   xorg-server
   xorg-xrandr
   xorg-xset
   xorg-xsetroot
 )
 
-for package in "${packages[@]}"; do
+# The releng profile already provides virtualbox-guest-utils-nox. Adding the\n# full virtualbox-guest-utils package conflicts with it and breaks mkarchiso.\nfor package in "${packages[@]}"; do
   grep -qxF "$package" "$GENERATED_PROFILE/packages.x86_64" || echo "$package" >> "$GENERATED_PROFILE/packages.x86_64"
 done
 
@@ -78,6 +77,7 @@ NAME="Josh OS"
 STAGE="0-live"
 BUILD="$version"
 BASE="Arch Linux / archiso"
+CANONICAL_REPOSITORY="https://github.com/joshuaparris-max/AshFallen"
 RELEASE
 
 # Rebrand metadata while retaining the upstream releng boot plumbing.
@@ -85,7 +85,7 @@ cat >> "$GENERATED_PROFILE/profiledef.sh" <<'PROFILE'
 
 # Josh OS overrides. Keep these after the upstream releng profile definitions.
 iso_name="josh-os"
-iso_publisher="Josh OS <https://github.com/Parris-Tech-Services/transfer2>"
+iso_publisher="Josh OS <https://github.com/joshuaparris-max/AshFallen>"
 iso_application="Josh OS Stage 0 Live"
 file_permissions["/usr/local/bin/josh-os-session"]="0:0:0755"
 file_permissions["/etc/sudoers.d/10-josh-os-live"]="0:0:0440"

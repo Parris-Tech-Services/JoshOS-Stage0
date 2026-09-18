@@ -8,18 +8,26 @@ on:
       - '.github/workflows/build-iso.yml'
       - 'design/**'
       - 'iso/**'
-      - 'scripts/build-iso.sh'
+      - 'scripts/**'
       - 'shell/**'
 
 permissions:
   contents: read
 
 jobs:
-  build-iso:
+  validate-and-build:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
+
+      - name: Validate generated shell assets
+        run: |
+          bash -n scripts/build-iso.sh
+          node scripts/build-tokens.mjs
+          git diff --exit-code -- design/tokens.css
+          node scripts/build-shell.mjs
+          test -s dist/josh-os-shell.html
 
       - name: Build ISO in Arch Linux
         run: |
@@ -37,7 +45,7 @@ jobs:
       - name: Upload bootable ISO
         uses: actions/upload-artifact@v4
         with:
-          name: josh-os-iso
+          name: JoshOS-Stage0-Live-x86_64
           path: |
             out/*.iso
             out/SHA256SUMS
