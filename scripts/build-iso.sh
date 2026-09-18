@@ -104,6 +104,7 @@ file_permissions["/usr/local/bin/josh-os-session"]="0:0:0755"
 file_permissions["/usr/local/bin/josh-network-check"]="0:0:0755"
 file_permissions["/usr/local/bin/josh-wifi"]="0:0:0755"
 file_permissions["/usr/local/lib/josh-os/network-control.py"]="0:0:0755"
+file_permissions["/usr/local/lib/josh-os/network-ready-probe"]="0:0:0755"
 file_permissions["/etc/sudoers.d/10-josh-os-live"]="0:0:0440"
 PROFILE
 
@@ -123,6 +124,7 @@ ln -sfn /usr/lib/systemd/system/vboxservice.service "$GENERATED_PROFILE/airootfs
 ln -sfn /usr/lib/systemd/system/NetworkManager.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/NetworkManager.service"
 ln -sfn /usr/lib/systemd/system/NetworkManager-wait-online.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service"
 ln -sfn /usr/lib/systemd/system/josh-network-control.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/josh-network-control.service"
+ln -sfn /usr/lib/systemd/system/josh-network-ready.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/josh-network-ready.service"
 ln -sfn /usr/lib/systemd/system/systemd-resolved.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/systemd-resolved.service"
 ln -sfn /usr/lib/systemd/system/systemd-timesyncd.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/systemd-timesyncd.service"
 ln -sfn /run/systemd/resolve/stub-resolv.conf "$GENERATED_PROFILE/airootfs/etc/resolv.conf"
