@@ -1,60 +1,117 @@
-# Roadmap
+# Stage 0 product roadmap
 
-Each stage must produce something bootable and usable. If a stage can't be
-daily-driven at the end of it, it has been scoped wrong.
+This repository is the **Stage-0 product/ISO extraction** for Josh OS.
 
-## Stage 0 — Shell prototype  ← *we are here*
+The canonical integration repository is [joshuaparris-max/AshFallen](https://github.com/joshuaparris-max/AshFallen). This repo exists to make desktop/product ideas cheap to prototype and easy to boot, not to become a second canonical Josh OS.
 
-Design the interaction model and visual language at speed, in a browser.
+## Detailed roadmaps
 
-- [x] Window manager: move, resize, focus, minimise, maximise
-- [x] Edge snapping with preview
-- [x] Dock with running indicators, menubar, clock
-- [x] Design token pipeline
-- [x] Light/dark themes, accent colours, wallpapers
-- [x] Notifications
-- [x] Apps: About, Files, Terminal, Editor, Settings
-- [ ] Keyboard-driven window management (the thing all three reference OSes do badly)
-- [ ] Global launcher / command palette
-- [ ] Window tiling beyond halves
-- [x] ArchISO build pipeline that boots the browser shell as a live desktop
-- [ ] Manual VirtualBox smoke test on the produced ISO
+- [Stage 0 hardening](STAGE0_HARDENING_ROADMAP.md) — build reliability, VM boot proof, product concepts, accessibility, first-run/recovery UX and Wayland hand-off.
+- [Upstream sync policy](UPSTREAM_SYNC.md) — prevents copied AshFallen assets and code from silently drifting.
 
-**Exit criteria:** you can look at it and say "yes, that's Josh OS" — or change
-it cheaply until you can.
+## Stage 0A — reliable live image
 
-## Stage 1 — Josh OS 1.x: real desktop, Linux underneath
+- [x] browser shell;
+- [x] ArchISO pipeline;
+- [ ] reconcile current build-script drift with AshFallen;
+- [ ] automated QEMU boot smoke test;
+- [ ] manual VirtualBox validation;
+- [ ] embedded source/build metadata;
+- [ ] documented supported VM settings;
+- [ ] deterministic “desktop ready” evidence.
 
-Everything the user experiences is Josh OS. Linux is an implementation detail.
+**Exit criterion:** a fresh checkout repeatedly produces a live ISO that demonstrably reaches the Josh desktop.
 
-- [x] Choose the base: Arch via `archiso`
-- [ ] Wayland compositor: `smithay` (Rust) or `wlroots` (C) — see `compositor/`
-- [ ] Port the window model from the prototype
-- [ ] Shell: panel, dock, launcher, notifications as real surfaces
-- [ ] Settings backed by real system services
-- [ ] Bootable ISO with an installer
-- [ ] Application packaging story
+## Stage 0B — canonical desktop model
 
-**Exit criteria:** it boots on real hardware and you use it for a week.
+- [x] move/resize/focus/minimise/maximise;
+- [x] edge snapping;
+- [x] dock/menu bar/clock;
+- [x] themes/wallpapers/accents;
+- [x] notifications;
+- [x] About/Files/Terminal/Editor/Settings prototypes;
+- [ ] canonical App model;
+- [ ] canonical Window model;
+- [ ] canonical Command model;
+- [ ] typed Settings model;
+- [ ] notification data/render separation;
+- [ ] implementation-neutral documentation for each model.
 
-## Stage 2 — Josh OS 2.x: own more of the userland
+Successful models are promoted to AshFallen.
 
-Replace Linux system services where Josh's model genuinely differs. Not before.
+## Stage 0C — keyboard and accessibility
 
-- [ ] Josh file service
-- [ ] Josh device/session model
-- [ ] Josh application format
+- [ ] global launcher / command palette;
+- [ ] switch windows from keyboard;
+- [ ] keyboard snap/maximise/minimise/close;
+- [ ] full dock/launcher keyboard navigation;
+- [ ] visible focus;
+- [ ] logical accessibility semantics;
+- [ ] reduced motion;
+- [ ] zoom/text-scale stress tests;
+- [ ] automated accessibility checks where useful.
 
-## Stage 3 — Josh OS 3.x: experimental Josh kernel
+## Stage 0D — start/first-run/recovery prototypes
 
-Boots in QEMU. Runs the Josh userland. Not expected to replace Linux on real
-hardware, and that's fine — the point is owning the whole stack conceptually.
+Use Stage 0 to cheaply design the visible product experience that later spans multiple real layers.
 
-## Honest sizing
+- [ ] firmware/start-screen visual language prototype;
+- [ ] boot-menu visual language prototype;
+- [ ] OS boot-splash prototype using real milestone vocabulary;
+- [ ] first-run flow;
+- [ ] login/session prototype only after account semantics are defined;
+- [ ] recovery UI information architecture;
+- [ ] diagnostics/export UX.
 
-Stage 0 is weeks. Stage 1 is a serious year or more of evenings, and the
-compositor alone is months. Haiku has been at this since 2001 and is still in
-beta; ReactOS since the 90s and still on 0.4.x. Both have teams.
+These are product prototypes; firmware/bootloader mechanisms live in MIDIVisualizer and canonical OS mechanisms live in AshFallen.
 
-That is not an argument against doing it. It is an argument for making every
-stage shippable, so the project survives contact with real life.
+## Stage 0E — prepare the Wayland port
+
+- [ ] separate shell state/model from DOM rendering;
+- [ ] document DOM-only assumptions;
+- [ ] conformance tests for window/focus/snap behaviour;
+- [ ] generate shared design values from one token source;
+- [ ] spike Smithay and wlroots in canonical AshFallen;
+- [ ] choose compositor toolkit by evidence;
+- [ ] port concepts rather than browser implementation details.
+
+## Stage 1 — canonical Linux-backed Josh desktop
+
+Stage 1 belongs primarily in AshFallen.
+
+Target:
+
+```text
+Josh apps
+    ↓
+Josh desktop shell
+    ↓
+Josh Wayland compositor
+    ↓
+Josh services
+    ↓
+Linux kernel + mature drivers
+```
+
+This extraction should become thinner as the canonical implementation becomes easier to iterate.
+
+## Native-kernel convergence
+
+The independent Josh kernel is **already real and already in AshFallen**. It is not a future transfer2 Stage 3.
+
+The long-term goal is for the same product concepts to run over:
+
+1. Stage-0 browser prototype;
+2. Linux/Wayland production desktop;
+3. native Josh userspace/kernel.
+
+transfer2 contributes by proving concepts cheaply and handing them upstream.
+
+## End state for this repo
+
+Choose deliberately between:
+
+- keeping transfer2 as a thin, automatically synced Stage-0/demo extraction; or
+- archiving it once AshFallen can provide the same rapid product iteration without duplication.
+
+There should never be two canonical Josh desktops.
