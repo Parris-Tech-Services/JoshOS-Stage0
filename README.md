@@ -23,7 +23,7 @@ The low-level firmware and bootloader research lives in **[Parris-Tech-Services/
 - **JoshFirmware:** [firmware/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/firmware)
 - **boot-stack test kernel/payload:** [kernel/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/kernel)
 
-Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [AshFallen/kernel](https://github.com/joshuaparris-max/AshFallen/tree/main/kernel) and currently boots via Limine. Future JoshBootloader work can target that kernel once its ELF64/x86-64 loading and boot-information ABI are ready.
+Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [AshFallen/kernel](https://github.com/joshuaparris-max/AshFallen/tree/main/kernel). Limine remains the independent reference path; the legacy-BIOS JoshBootloader path now also loads that canonical kernel from FAT32 and reaches its QEMU boot-success marker.
 
 ## Roadmaps and sync discipline
 
@@ -88,6 +88,13 @@ Movable and resizable windows, focus stack, minimise/maximise, edge snapping
 (drag to left/right edge or top), dock with running indicators, menubar clock,
 light/dark themes, accent colours, wallpapers, notifications, and five apps:
 About, Files, Terminal, Text Editor, Settings.
+
+The live ISO also configures NetworkManager-backed DHCP and Wi-Fi, IPv4/IPv6,
+systemd-resolved DNS, NTP clock synchronisation and the system CA trust store.
+Use `josh-wifi` to manage wireless connections and `josh-network-check` to
+verify routing, DNS, time, CA certificates and an HTTPS/TLS connection to
+YouTube. These are Linux-backed Stage 0 services, not native Josh-kernel
+networking.
 
 Try the Terminal — `help` lists what it knows.
 
