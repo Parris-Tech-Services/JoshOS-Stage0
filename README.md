@@ -12,28 +12,18 @@ Josh OS borrows deliberately: macOS for visual restraint and consistency,
 Windows for familiar window management, Linux for openness and hackability.
 It is not aiming to be another theme on top of GNOME.
 
-## Low-level Josh boot stack
+## Place in the Josh OS ecosystem
 
-This Stage 0 Josh OS shell/ISO is linked to the low-level Josh boot stack in [Parris-Tech-Services/MIDIVisualizer](https://github.com/Parris-Tech-Services/MIDIVisualizer), currently the home of JoshBIOS plus the JoshBootloader and JoshFirmware modules.
+This repository is the **Stage 0 product-track shell/ISO extraction**. The canonical Josh OS integration repository is **[joshuaparris-max/AshFallen](https://github.com/joshuaparris-max/AshFallen)**, which carries both the Linux-backed product track and the independent native Josh kernel.
 
-```text
-Power button
-   ↓
-JoshFirmware
-   ↓
-JoshBIOS
-   ↓
-JoshBootloader
-   ↓
-Josh OS
-```
+The low-level firmware and bootloader research lives in **[Parris-Tech-Services/MIDIVisualizer](https://github.com/Parris-Tech-Services/MIDIVisualizer)**:
 
-- **JoshBIOS:** [Parris-Tech-Services/MIDIVisualizer](https://github.com/Parris-Tech-Services/MIDIVisualizer)
+- **JoshBIOS / boot stack:** repository root and architecture docs
 - **JoshBootloader:** [boot/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/boot)
 - **JoshFirmware:** [firmware/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/firmware)
-- **Experimental low-level kernel:** [kernel/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/kernel)
+- **boot-stack test kernel/payload:** [kernel/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/kernel)
 
-These low-level pieces are currently modules of the JoshBIOS repository rather than separate GitHub repositories.
+Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [AshFallen/kernel](https://github.com/joshuaparris-max/AshFallen/tree/main/kernel) and currently boots via Limine. Future JoshBootloader work can target that kernel once its ELF64/x86-64 loading and boot-information ABI are ready.
 
 ## What this is *not* (yet)
 
