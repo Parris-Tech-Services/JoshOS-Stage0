@@ -16,12 +16,12 @@ It is not aiming to be another theme on top of GNOME.
 
 This repository is the **Stage 0 product-track shell/ISO extraction**. The canonical Josh OS integration repository is **[joshuaparris-max/AshFallen](https://github.com/joshuaparris-max/AshFallen)**, which carries both the Linux-backed product track and the independent native Josh kernel.
 
-The low-level firmware and bootloader research lives in **[Parris-Tech-Services/MIDIVisualizer](https://github.com/Parris-Tech-Services/MIDIVisualizer)**:
+The low-level firmware and bootloader research lives in **[Parris-Tech-Services/JoshBIOS](https://github.com/Parris-Tech-Services/JoshBIOS)**:
 
 - **JoshBIOS / boot stack:** repository root and architecture docs
-- **JoshBootloader:** [boot/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/boot)
-- **JoshFirmware:** [firmware/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/firmware)
-- **boot-stack test kernel/payload:** [kernel/](https://github.com/Parris-Tech-Services/MIDIVisualizer/tree/main/kernel)
+- **JoshBootloader:** [boot/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/boot)
+- **JoshFirmware:** [firmware/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/firmware)
+- **boot-stack test kernel/payload:** [kernel/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/kernel)
 
 Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [AshFallen/kernel](https://github.com/joshuaparris-max/AshFallen/tree/main/kernel) and currently boots via Limine. Future JoshBootloader work can target that kernel once its ELF64/x86-64 loading and boot-information ABI are ready.
 
@@ -29,7 +29,7 @@ Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS na
 
 - [Stage 0 product roadmap](docs/roadmap.md)
 - [Stage 0 hardening roadmap](docs/STAGE0_HARDENING_ROADMAP.md)
-- [AshFallen ↔ transfer2 sync policy](docs/UPSTREAM_SYNC.md)
+- [AshFallen ↔ JoshOS-Stage0 sync policy](docs/UPSTREAM_SYNC.md)
 
 Changes intended to become canonical Josh OS behaviour should be promoted to AshFallen rather than allowed to drift indefinitely in this extraction.
 
