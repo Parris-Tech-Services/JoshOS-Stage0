@@ -27,6 +27,7 @@ Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS na
 
 ## Roadmaps and sync discipline
 
+- [Full-stack programming plan](docs/FULL_STACK_PROGRAMMING_PLAN.md) — the shared 37-phase ownership plan and where Stage 0 contributes.
 - [Stage 0 product roadmap](docs/roadmap.md)
 - [Stage 0 hardening roadmap](docs/STAGE0_HARDENING_ROADMAP.md)
 - [AshFallen ↔ JoshOS-Stage0 sync policy](docs/UPSTREAM_SYNC.md)
