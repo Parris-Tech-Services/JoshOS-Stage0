@@ -25,6 +25,14 @@ The low-level firmware and bootloader research lives in **[Parris-Tech-Services/
 
 Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [AshFallen/kernel](https://github.com/joshuaparris-max/AshFallen/tree/main/kernel) and currently boots via Limine. Future JoshBootloader work can target that kernel once its ELF64/x86-64 loading and boot-information ABI are ready.
 
+## Roadmaps and sync discipline
+
+- [Stage 0 product roadmap](docs/roadmap.md)
+- [Stage 0 hardening roadmap](docs/STAGE0_HARDENING_ROADMAP.md)
+- [AshFallen ↔ transfer2 sync policy](docs/UPSTREAM_SYNC.md)
+
+Changes intended to become canonical Josh OS behaviour should be promoted to AshFallen rather than allowed to drift indefinitely in this extraction.
+
 ## What this is *not* (yet)
 
 There is no kernel here, and for stage 1 there deliberately won't be. See
