@@ -31,6 +31,7 @@ jobs:
           bash -n scripts/check-network-platform.sh
           bash -n iso/overlay/usr/local/bin/josh-network-check
           bash -n iso/overlay/usr/local/bin/josh-wifi
+          bash -n iso/overlay/usr/local/bin/josh-network-acceptance
           python -m py_compile iso/overlay/usr/local/lib/josh-os/network-control.py
           bash -n iso/overlay/usr/local/lib/josh-os/network-ready-probe
           bash -n scripts/smoke-network-platform.sh
