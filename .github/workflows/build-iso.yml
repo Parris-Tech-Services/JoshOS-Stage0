@@ -32,6 +32,8 @@ jobs:
           bash -n iso/overlay/usr/local/bin/josh-network-check
           bash -n iso/overlay/usr/local/bin/josh-wifi
           python -m py_compile iso/overlay/usr/local/lib/josh-os/network-control.py
+          bash -n iso/overlay/usr/local/lib/josh-os/network-ready-probe
+          bash -n scripts/smoke-network-platform.sh
           grep -q "/api/network/status" shell/apps.js
           grep -q "networkmanager" scripts/build-iso.sh
           grep -q "ca-certificates-mozilla" scripts/build-iso.sh
@@ -50,6 +52,13 @@ jobs:
             archlinux:latest \
             bash -lc 'pacman -Syu --noconfirm archiso git && ./scripts/build-iso.sh'
 
+      - name: QEMU Internet smoke test
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-system-x86
+          iso="$(ls -1 out/josh-os-*.iso | head -n1)"
+          bash scripts/smoke-network-platform.sh "$iso" out/network-boot.log
+
       - name: Take ownership of build output
         run: sudo chown -R "$(id -u):$(id -g)" out
 
@@ -65,6 +74,7 @@ jobs:
           path: |
             out/*.iso
             out/SHA256SUMS
+            out/network-boot.log
           if-no-files-found: error
           compression-level: 0
           retention-days: 14
