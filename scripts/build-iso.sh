@@ -52,6 +52,7 @@ packages=(
   linux-firmware
   networkmanager
   openssl
+  python
   lightdm
   lightdm-gtk-greeter
   mesa
@@ -102,11 +103,13 @@ iso_application="Josh OS Stage 0 Live"
 file_permissions["/usr/local/bin/josh-os-session"]="0:0:0755"
 file_permissions["/usr/local/bin/josh-network-check"]="0:0:0755"
 file_permissions["/usr/local/bin/josh-wifi"]="0:0:0755"
+file_permissions["/usr/local/lib/josh-os/network-control.py"]="0:0:0755"
 file_permissions["/etc/sudoers.d/10-josh-os-live"]="0:0:0440"
 PROFILE
 
 # Boot directly to the graphical target and enable the display manager.
 mkdir -p "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants"
+mkdir -p "$GENERATED_PROFILE/airootfs/etc/systemd/system/network-online.target.wants"
 ln -sfn /usr/lib/systemd/system/graphical.target "$GENERATED_PROFILE/airootfs/etc/systemd/system/default.target"
 ln -sfn /usr/lib/systemd/system/lightdm.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/display-manager.service"
 
@@ -118,6 +121,8 @@ rm -f \
   "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/iwd.service"
 ln -sfn /usr/lib/systemd/system/vboxservice.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/vboxservice.service"
 ln -sfn /usr/lib/systemd/system/NetworkManager.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/NetworkManager.service"
+ln -sfn /usr/lib/systemd/system/NetworkManager-wait-online.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service"
+ln -sfn /usr/lib/systemd/system/josh-network-control.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/josh-network-control.service"
 ln -sfn /usr/lib/systemd/system/systemd-resolved.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/systemd-resolved.service"
 ln -sfn /usr/lib/systemd/system/systemd-timesyncd.service "$GENERATED_PROFILE/airootfs/etc/systemd/system/multi-user.target.wants/systemd-timesyncd.service"
 ln -sfn /run/systemd/resolve/stub-resolv.conf "$GENERATED_PROFILE/airootfs/etc/resolv.conf"
