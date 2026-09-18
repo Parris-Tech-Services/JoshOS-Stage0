@@ -1,0 +1,12 @@
+[Unit]
+Description=Josh OS Internet readiness probe
+After=network-online.target systemd-timesyncd.service
+Wants=network-online.target systemd-timesyncd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/lib/josh-os/network-ready-probe
+TimeoutStartSec=150
+
+[Install]
+WantedBy=multi-user.target
