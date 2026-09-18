@@ -37,6 +37,9 @@ jobs:
             archlinux:latest \
             bash -lc 'pacman -Syu --noconfirm archiso git && ./scripts/build-iso.sh'
 
+      - name: Take ownership of build output
+        run: sudo chown -R "$(id -u):$(id -g)" out
+
       - name: Show ISO metadata
         run: |
           ls -lh out/*.iso
