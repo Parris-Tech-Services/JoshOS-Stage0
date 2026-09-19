@@ -48,9 +48,9 @@ New session work should port **concepts and visual tokens**, not browser/DOM imp
 
 This decision does **not** implement or select the final Josh compositor.
 
-The native Josh compositor remains canonical future work in `joshuaparris-max/AshFallen`. Stage 0 uses labwc to obtain mature Linux hardware/application support while the native stack develops.
+The native Josh compositor remains canonical future work in `joshuaparris-max/JoshOS`. Stage 0 uses labwc to obtain mature Linux hardware/application support while the native stack develops.
 
-The following remain deferred to canonical AshFallen work:
+The following remain deferred to canonical JoshOS work:
 
 - Josh-owned Wayland/compositor implementation;
 - native window-management protocol decisions beyond the product model;
