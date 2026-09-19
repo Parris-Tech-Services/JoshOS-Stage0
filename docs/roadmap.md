@@ -2,18 +2,18 @@
 
 This repository is the **Stage-0 product/ISO extraction** for Josh OS.
 
-The canonical integration repository is [joshuaparris-max/AshFallen](https://github.com/joshuaparris-max/AshFallen). This repo exists to make desktop/product ideas cheap to prototype and easy to boot, not to become a second canonical Josh OS.
+The canonical integration repository is [joshuaparris-max/JoshOS](https://github.com/joshuaparris-max/JoshOS). This repo exists to make desktop/product ideas cheap to prototype and easy to boot, not to become a second canonical Josh OS.
 
 ## Detailed roadmaps
 
 - [Stage 0 hardening](STAGE0_HARDENING_ROADMAP.md) — build reliability, VM boot proof, product concepts, accessibility, first-run/recovery UX and Wayland hand-off.
-- [Upstream sync policy](UPSTREAM_SYNC.md) — prevents copied AshFallen assets and code from silently drifting.
+- [Upstream sync policy](UPSTREAM_SYNC.md) — prevents copied JoshOS assets and code from silently drifting.
 
 ## Stage 0A — reliable live image
 
 - [x] browser shell;
 - [x] ArchISO pipeline;
-- [ ] reconcile current build-script drift with AshFallen;
+- [ ] reconcile current build-script drift with JoshOS;
 - [ ] automated QEMU boot smoke test;
 - [ ] manual VirtualBox validation;
 - [ ] embedded source/build metadata;
@@ -37,7 +37,7 @@ The canonical integration repository is [joshuaparris-max/AshFallen](https://git
 - [ ] notification data/render separation;
 - [ ] implementation-neutral documentation for each model.
 
-Successful models are promoted to AshFallen.
+Successful models are promoted to JoshOS.
 
 ## Stage 0C — keyboard and accessibility
 
@@ -63,7 +63,7 @@ Use Stage 0 to cheaply design the visible product experience that later spans mu
 - [ ] recovery UI information architecture;
 - [ ] diagnostics/export UX.
 
-These are product prototypes; firmware/bootloader mechanisms live in JoshBIOS and canonical OS mechanisms live in AshFallen.
+These are product prototypes; firmware/bootloader mechanisms live in JoshBIOS and canonical OS mechanisms live in JoshOS.
 
 ## Stage 0E — prepare the Wayland port
 
@@ -71,13 +71,13 @@ These are product prototypes; firmware/bootloader mechanisms live in JoshBIOS an
 - [ ] document DOM-only assumptions;
 - [ ] conformance tests for window/focus/snap behaviour;
 - [ ] generate shared design values from one token source;
-- [ ] spike Smithay and wlroots in canonical AshFallen;
+- [ ] spike Smithay and wlroots in canonical JoshOS;
 - [ ] choose compositor toolkit by evidence;
 - [ ] port concepts rather than browser implementation details.
 
 ## Stage 1 — canonical Linux-backed Josh desktop
 
-Stage 1 belongs primarily in AshFallen.
+Stage 1 belongs primarily in JoshOS.
 
 Target:
 
@@ -97,7 +97,7 @@ This extraction should become thinner as the canonical implementation becomes ea
 
 ## Native-kernel convergence
 
-The independent Josh kernel is **already real and already in AshFallen**. It is not a future JoshOS-Stage0 Stage 3.
+The independent Josh kernel is **already real and already in JoshOS**. It is not a future JoshOS-Stage0 Stage 3.
 
 The long-term goal is for the same product concepts to run over:
 
@@ -112,6 +112,6 @@ JoshOS-Stage0 contributes by proving concepts cheaply and handing them upstream.
 Choose deliberately between:
 
 - keeping JoshOS-Stage0 as a thin, automatically synced Stage-0/demo extraction; or
-- archiving it once AshFallen can provide the same rapid product iteration without duplication.
+- archiving it once JoshOS can provide the same rapid product iteration without duplication.
 
 There should never be two canonical Josh desktops.
