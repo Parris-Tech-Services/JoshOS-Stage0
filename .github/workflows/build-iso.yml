@@ -2,6 +2,13 @@ name: Build Josh OS ISO
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/build-iso.yml'
+      - 'design/**'
+      - 'iso/**'
+      - 'scripts/**'
+      - 'shell/**'
   push:
     branches: [main]
     paths:
@@ -53,15 +60,15 @@ jobs:
             archlinux:latest \
             bash -lc 'pacman -Syu --noconfirm archiso git && ./scripts/build-iso.sh'
 
+      - name: Take ownership of build output
+        run: sudo chown -R "$(id -u):$(id -g)" out
+
       - name: QEMU Internet smoke test
         run: |
           sudo apt-get update
           sudo apt-get install -y qemu-system-x86
           iso="$(ls -1 out/josh-os-*.iso | head -n1)"
           bash scripts/smoke-network-platform.sh "$iso" out/network-boot.log
-
-      - name: Take ownership of build output
-        run: sudo chown -R "$(id -u):$(id -g)" out
 
       - name: Show ISO metadata
         run: |
