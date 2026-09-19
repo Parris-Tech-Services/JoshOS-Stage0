@@ -10,6 +10,14 @@ on:
       - 'iso/**'
       - 'scripts/**'
       - 'shell/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-iso.yml'
+      - 'design/**'
+      - 'iso/**'
+      - 'scripts/**'
+      - 'shell/**'
 
 permissions:
   contents: read
