@@ -138,6 +138,14 @@ while IFS= read -r -d '' cfg; do
     "$cfg"
 done < <(find "$GENERATED_PROFILE" -type f \( -name '*.cfg' -o -name '*.conf' \) -print0)
 
+# Preserve the normal VGA console while also sending kernel diagnostics to the
+# first serial port. The QEMU smoke test consumes ttyS0, and physical machines
+# with a serial console gain the same early-boot observability.
+syslinux_live_cfg="$GENERATED_PROFILE/syslinux/archiso_sys-linux.cfg"
+if [[ -f "$syslinux_live_cfg" ]]; then
+  sed -i '/^APPEND / s/$/ console=ttyS0,115200n8 console=tty0/' "$syslinux_live_cfg"
+fi
+
 bash "$ROOT/scripts/check-network-platform.sh" "$GENERATED_PROFILE"
 
 if [[ "$PREPARE_ONLY" -eq 1 ]]; then
