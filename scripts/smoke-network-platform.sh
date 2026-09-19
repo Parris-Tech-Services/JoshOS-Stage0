@@ -12,6 +12,7 @@ mkdir -p "$(dirname "$log")"
 
 "$qemu" \
   -machine q35 \
+  -smp 2 \
   -m 2048 \
   -boot order=d \
   -cdrom "$iso" \
