@@ -1,7 +1,8 @@
-# ADR-0003: One token file for every surface
+# ADR-0005: One token file for every surface
 
-**Status:** accepted
-**Date:** 2026-09-18
+**Status:** accepted  
+**Date:** 2026-09-18  
+**Renumbered:** 2026-09-19 during integration; content was previously ADR-0003.
 
 ## Context
 
