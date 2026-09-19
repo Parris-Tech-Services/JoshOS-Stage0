@@ -68,13 +68,16 @@ PY
 
 boot_key_sent=0
 for _ in $(seq 1 "$timeout_seconds"); do
-  if grep -q '^JOSHOS_NETWORK_READY' "$log"; then
-    echo "Josh OS Stage 0 QEMU Internet smoke test passed."
-    exit 0
-  fi
-  if grep -q '^JOSHOS_NETWORK_READY_FAIL' "$log"; then
+  # serial-getty can leave its login prompt on the same line as the readiness
+  # marker (for example: "archiso login: JOSHOS_NETWORK_READY"). Check the
+  # failure token first because it contains the success token as a prefix.
+  if grep -qF 'JOSHOS_NETWORK_READY_FAIL' "$log"; then
     cat "$log" >&2
     exit 1
+  fi
+  if grep -qF 'JOSHOS_NETWORK_READY' "$log"; then
+    echo "Josh OS Stage 0 QEMU Internet smoke test passed."
+    exit 0
   fi
 
   # TCG on hosted runners can make a 15-second guest bootloader countdown take
