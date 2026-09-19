@@ -14,7 +14,7 @@ It is not aiming to be another theme on top of GNOME.
 
 ## Place in the Josh OS ecosystem
 
-This repository is the **Stage 0 product-track shell/ISO extraction**. The canonical Josh OS integration repository is **[joshuaparris-max/AshFallen](https://github.com/joshuaparris-max/AshFallen)**, which carries both the Linux-backed product track and the independent native Josh kernel.
+This repository is the **Stage 0 product-track shell/ISO extraction**. The canonical Josh OS integration repository is **[joshuaparris-max/JoshOS](https://github.com/joshuaparris-max/JoshOS)**, which carries both the Linux-backed product track and the independent native Josh kernel.
 
 The low-level firmware and bootloader research lives in **[Parris-Tech-Services/JoshBIOS](https://github.com/Parris-Tech-Services/JoshBIOS)**:
 
@@ -23,7 +23,7 @@ The low-level firmware and bootloader research lives in **[Parris-Tech-Services/
 - **JoshFirmware:** [firmware/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/firmware)
 - **boot-stack test kernel/payload:** [kernel/](https://github.com/Parris-Tech-Services/JoshBIOS/tree/main/kernel)
 
-Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [AshFallen/kernel](https://github.com/joshuaparris-max/AshFallen/tree/main/kernel). Limine remains the independent reference path; the legacy-BIOS JoshBootloader path now also loads that canonical kernel from FAT32 and reaches its QEMU boot-success marker.
+Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS native kernel. The canonical x86-64 kernel is in [JoshOS/kernel](https://github.com/joshuaparris-max/JoshOS/tree/main/kernel). Limine remains the independent reference path; the legacy-BIOS JoshBootloader path now also loads that canonical kernel from FAT32 and reaches its QEMU boot-success marker.
 
 ## Roadmaps and sync discipline
 
@@ -31,9 +31,9 @@ Important boundary: the JoshBIOS test kernel is **not** the canonical Josh OS na
 - [Difficulty, scope and feasibility](docs/DIFFICULTY_SCOPE_AND_FEASIBILITY.md) — realistic complexity bands and the role of Stage 0 as the cheap/observable prototype layer.
 - [Stage 0 product roadmap](docs/roadmap.md)
 - [Stage 0 hardening roadmap](docs/STAGE0_HARDENING_ROADMAP.md)
-- [AshFallen ↔ JoshOS-Stage0 sync policy](docs/UPSTREAM_SYNC.md)
+- [JoshOS ↔ JoshOS-Stage0 sync policy](docs/UPSTREAM_SYNC.md)
 
-Changes intended to become canonical Josh OS behaviour should be promoted to AshFallen rather than allowed to drift indefinitely in this extraction.
+Changes intended to become canonical Josh OS behaviour should be promoted to JoshOS rather than allowed to drift indefinitely in this extraction.
 
 ## What this is *not* (yet)
 
