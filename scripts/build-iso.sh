@@ -138,6 +138,16 @@ while IFS= read -r -d '' cfg; do
     "$cfg"
 done < <(find "$GENERATED_PROFILE" -type f \( -name '*.cfg' -o -name '*.conf' \) -print0)
 
+# The automated QEMU acceptance test captures COM1. Keep the live image
+# diagnosable after the bootloader hands off to Linux rather than leaving a
+# permanent blank serial log on kernel/userspace failures.
+while IFS= read -r -d '' cfg; do
+  sed -i -E '/^[[:space:]]*APPEND[[:space:]]/ s/$/ console=ttyS0,115200n8/' "$cfg"
+done < <(find "$GENERATED_PROFILE" -type f -name '*.cfg' -print0)
+while IFS= read -r -d '' conf; do
+  sed -i -E '/^[[:space:]]*options[[:space:]]/ s/$/ console=ttyS0,115200n8/' "$conf"
+done < <(find "$GENERATED_PROFILE" -type f -name '*.conf' -print0)
+
 bash "$ROOT/scripts/check-network-platform.sh" "$GENERATED_PROFILE"
 
 if [[ "$PREPARE_ONLY" -eq 1 ]]; then
