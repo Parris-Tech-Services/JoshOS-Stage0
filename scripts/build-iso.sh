@@ -90,7 +90,7 @@ NAME="Josh OS"
 STAGE="0-live"
 BUILD="$version"
 BASE="Arch Linux / archiso"
-CANONICAL_REPOSITORY="https://github.com/joshuaparris-max/AshFallen"
+CANONICAL_REPOSITORY="https://github.com/joshuaparris-max/JoshOS"
 RELEASE
 
 # Rebrand metadata while retaining the upstream releng boot plumbing.
@@ -98,7 +98,7 @@ cat >> "$GENERATED_PROFILE/profiledef.sh" <<'PROFILE'
 
 # Josh OS overrides. Keep these after the upstream releng profile definitions.
 iso_name="josh-os"
-iso_publisher="Josh OS <https://github.com/joshuaparris-max/AshFallen>"
+iso_publisher="Josh OS <https://github.com/joshuaparris-max/JoshOS>"
 iso_application="Josh OS Stage 0 Live"
 file_permissions["/usr/local/bin/josh-os-session"]="0:0:0755"
 file_permissions["/usr/local/bin/josh-network-check"]="0:0:0755"
