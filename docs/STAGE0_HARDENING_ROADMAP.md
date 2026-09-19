@@ -2,7 +2,7 @@
 
 This repository is the extracted Stage-0 Josh OS product shell and ArchISO compatibility image.
 
-It is **not** the canonical Josh OS integration repository. Canonical product concepts and the native kernel live in `joshuaparris-max/AshFallen`.
+It is **not** the canonical Josh OS integration repository. Canonical product concepts and the native kernel live in `joshuaparris-max/JoshOS`.
 
 The purpose of this repo is to make the visible Josh desktop easy to iterate, boot, test and demonstrate while the production compositor and native kernel mature.
 
@@ -27,20 +27,20 @@ It should not pretend Chromium/Openbox is the final architecture.
 
 # S0 — Stop source-of-truth drift
 
-Current problem: some files began as copies of AshFallen and have already diverged.
+Current problem: some files began as copies of JoshOS and have already diverged.
 
 Examples observed:
 
 - shared design tokens are currently identical;
 - shell implementation has diverged;
 - ISO build scripts have diverged;
-- AshFallen fixed an ArchISO VirtualBox guest-package conflict that may not exist here yet.
+- JoshOS fixed an ArchISO VirtualBox guest-package conflict that may not exist here yet.
 
 ## Decide ownership per file family
 
-### Canonical in AshFallen
+### Canonical in JoshOS
 
-Prefer AshFallen as source of truth for:
+Prefer JoshOS as source of truth for:
 
 - design tokens;
 - canonical App/Window/Setting concepts;
@@ -213,7 +213,7 @@ Before adding more visual features:
 - [ ] Settings fully navigable;
 - [ ] terminal/editor usable without pointer.
 
-Keyboard semantics should become part of the canonical product contract in AshFallen.
+Keyboard semantics should become part of the canonical product contract in JoshOS.
 
 ---
 
@@ -375,7 +375,7 @@ Before production compositor work:
 - [ ] separate state/model from rendering;
 - [ ] record compositor protocol needs;
 - [ ] create a small conformance suite for the window model;
-- [ ] spike Smithay and wlroots in canonical AshFallen work;
+- [ ] spike Smithay and wlroots in canonical JoshOS work;
 - [ ] port concepts, not browser implementation patterns.
 
 ---
@@ -408,4 +408,4 @@ Stage 0 is “done enough” when:
 7. duplicated canonical assets have an explicit sync mechanism;
 8. the Wayland implementation can begin without rediscovering the product model.
 
-After that, most new product engineering belongs in canonical AshFallen rather than expanding this extraction forever.
+After that, most new product engineering belongs in canonical JoshOS rather than expanding this extraction forever.
