@@ -7,7 +7,8 @@ qemu="${QEMU:-qemu-system-x86_64}"
 timeout_seconds="${NETWORK_SMOKE_TIMEOUT:-180}"
 
 command -v "$qemu" >/dev/null
-rm -f "$log"
+mkdir -p "$(dirname "$log")"
+: > "$log"
 
 "$qemu" \
   -machine q35 \
@@ -31,22 +32,22 @@ cleanup() {
 trap cleanup EXIT
 
 for _ in $(seq 1 "$timeout_seconds"); do
-  if grep -q '^JOSHOS_NETWORK_READY' "$log" 2>/dev/null; then
+  if grep -q '^JOSHOS_NETWORK_READY' "$log"; then
     echo "Josh OS Stage 0 QEMU Internet smoke test passed."
     exit 0
   fi
-  if grep -q '^JOSHOS_NETWORK_READY_FAIL' "$log" 2>/dev/null; then
+  if grep -q '^JOSHOS_NETWORK_READY_FAIL' "$log"; then
     cat "$log" >&2
     exit 1
   fi
   if ! kill -0 "$pid" >/dev/null 2>&1; then
     echo "Josh OS Stage 0 exited before Internet readiness." >&2
-    cat "$log" >&2 || true
+    cat "$log" >&2
     exit 1
   fi
   sleep 1
 done
 
 echo "Josh OS Stage 0 Internet smoke test timed out." >&2
-cat "$log" >&2 || true
+cat "$log" >&2
 exit 1
