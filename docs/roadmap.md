@@ -4,6 +4,8 @@ This repository is the **Stage-0 product/ISO extraction** for Josh OS.
 
 The canonical integration repository is [joshuaparris-max/AshFallen](https://github.com/joshuaparris-max/AshFallen). This repo exists to make desktop/product ideas cheap to prototype and easy to boot, not to become a second canonical Josh OS.
 
+The live product track now targets a **real Wayland session** hosted by labwc. The existing `shell/` browser desktop remains intact as the **reference prototype for the Josh window model and design language**, not the shipping Stage 0 desktop. See [ADR 0002](decisions/0002-real-wayland-session-for-stage-0.md).
+
 ## Detailed roadmaps
 
 - [Stage 0 hardening](STAGE0_HARDENING_ROADMAP.md) — build reliability, VM boot proof, product concepts, accessibility, first-run/recovery UX and Wayland hand-off.
