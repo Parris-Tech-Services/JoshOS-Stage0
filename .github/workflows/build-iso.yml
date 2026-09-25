@@ -7,7 +7,6 @@ on:
     paths:
       - '.github/workflows/build-iso.yml'
       - 'design/**'
-      - 'docs/**'
       - 'iso/**'
       - 'scripts/**'
       - 'shell/**'
@@ -16,7 +15,6 @@ on:
     paths:
       - '.github/workflows/build-iso.yml'
       - 'design/**'
-      - 'docs/**'
       - 'iso/**'
       - 'scripts/**'
       - 'shell/**'
