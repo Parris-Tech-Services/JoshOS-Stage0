@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 HOST = "127.0.0.1"
 PORT = 8765
 SHELL_ROOT = "/opt/josh-os/shell"
+ALLOWED_ORIGINS = {f"http://127.0.0.1:{PORT}", f"http://localhost:{PORT}"}
 
 
 def run(args, *, input_text=None, timeout=20):
@@ -183,6 +184,16 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def trusted_post_request(self):
+        # State-changing localhost APIs are still reachable from arbitrary web
+        # pages unless we enforce CSRF/origin boundaries. Legitimate shell
+        # requests are same-origin JSON; command-line clients may omit Origin.
+        origin = self.headers.get("Origin")
+        if origin and origin not in ALLOWED_ORIGINS:
+            return False
+        content_type = self.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+        return content_type == "application/json"
+
     def read_json(self):
         try:
             length = int(self.headers.get("Content-Length", "0"))
@@ -207,6 +218,10 @@ class Handler(SimpleHTTPRequestHandler):
             super().do_GET()
 
     def do_POST(self):
+        if not self.trusted_post_request():
+            self.send_json(403, {"ok": False, "message": "Blocked untrusted request."})
+            return
+
         path = urlparse(self.path).path
         payload = self.read_json()
         if path == "/api/network/connect":
