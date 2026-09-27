@@ -132,9 +132,32 @@ class NetworkControlTests(unittest.TestCase):
     def _handler(self, path, payload=None):
         handler = network.Handler.__new__(network.Handler)
         handler.path = path
+        handler.headers = {
+            "Content-Type": "application/json",
+            "Origin": "http://127.0.0.1:8765",
+        }
         handler.read_json = mock.Mock(return_value=payload or {})
         handler.send_json = mock.Mock()
         return handler
+
+    def test_handler_blocks_cross_site_and_form_posts(self):
+        handler = self._handler("/api/network/disconnect")
+        handler.headers["Origin"] = "https://attacker.example"
+        with mock.patch.object(network, "disconnect_wifi") as disconnect:
+            handler.do_POST()
+        disconnect.assert_not_called()
+        handler.send_json.assert_called_once_with(
+            403, {"ok": False, "message": "Blocked untrusted request."}
+        )
+
+        handler = self._handler("/api/network/disconnect")
+        handler.headers = {"Content-Type": "application/x-www-form-urlencoded"}
+        with mock.patch.object(network, "disconnect_wifi") as disconnect:
+            handler.do_POST()
+        disconnect.assert_not_called()
+        handler.send_json.assert_called_once_with(
+            403, {"ok": False, "message": "Blocked untrusted request."}
+        )
 
     def test_handler_post_routes_network_actions(self):
         handler = self._handler("/api/network/connect", {"ssid": "Home"})
