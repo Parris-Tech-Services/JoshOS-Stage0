@@ -15,12 +15,12 @@ The live product track now targets a **real Wayland session** hosted by labwc. T
 
 - [x] browser shell;
 - [x] ArchISO pipeline;
-- [ ] reconcile current build-script drift with JoshOS;
-- [ ] automated QEMU boot smoke test;
-- [ ] manual VirtualBox validation;
-- [ ] embedded source/build metadata;
-- [ ] documented supported VM settings;
-- [ ] deterministic “desktop ready” evidence.
+- [ ] **TASK-00656** reconcile current build-script drift with JoshOS;
+- [ ] **TASK-00657** automated QEMU boot smoke test;
+- [ ] **TASK-00658** manual VirtualBox validation;
+- [ ] **TASK-00659** embedded source/build metadata;
+- [ ] **TASK-00660** documented supported VM settings;
+- [ ] **TASK-00661** deterministic “desktop ready” evidence.
 
 **Exit criterion:** a fresh checkout repeatedly produces a live ISO that demonstrably reaches the Josh desktop.
 
@@ -32,50 +32,50 @@ The live product track now targets a **real Wayland session** hosted by labwc. T
 - [x] themes/wallpapers/accents;
 - [x] notifications;
 - [x] About/Files/Terminal/Editor/Settings prototypes;
-- [ ] canonical App model;
-- [ ] canonical Window model;
-- [ ] canonical Command model;
-- [ ] typed Settings model;
-- [ ] notification data/render separation;
-- [ ] implementation-neutral documentation for each model.
+- [ ] **TASK-00668** canonical App model;
+- [ ] **TASK-00669** canonical Window model;
+- [ ] **TASK-00670** canonical Command model;
+- [ ] **TASK-00671** typed Settings model;
+- [ ] **TASK-00672** notification data/render separation;
+- [ ] **TASK-00673** implementation-neutral documentation for each model.
 
 Successful models are promoted to JoshOS.
 
 ## Stage 0C — keyboard and accessibility
 
-- [ ] global launcher / command palette;
-- [ ] switch windows from keyboard;
-- [ ] keyboard snap/maximise/minimise/close;
-- [ ] full dock/launcher keyboard navigation;
-- [ ] visible focus;
-- [ ] logical accessibility semantics;
-- [ ] reduced motion;
-- [ ] zoom/text-scale stress tests;
-- [ ] automated accessibility checks where useful.
+- [ ] **TASK-00674** global launcher / command palette;
+- [ ] **TASK-00675** switch windows from keyboard;
+- [ ] **TASK-00676** keyboard snap/maximise/minimise/close;
+- [ ] **TASK-00677** full dock/launcher keyboard navigation;
+- [ ] **TASK-00678** visible focus;
+- [ ] **TASK-00679** logical accessibility semantics;
+- [ ] **TASK-00680** reduced motion;
+- [ ] **TASK-00681** zoom/text-scale stress tests;
+- [ ] **TASK-00682** automated accessibility checks where useful.
 
 ## Stage 0D — start/first-run/recovery prototypes
 
 Use Stage 0 to cheaply design the visible product experience that later spans multiple real layers.
 
-- [ ] firmware/start-screen visual language prototype;
-- [ ] boot-menu visual language prototype;
-- [ ] OS boot-splash prototype using real milestone vocabulary;
-- [ ] first-run flow;
-- [ ] login/session prototype only after account semantics are defined;
-- [ ] recovery UI information architecture;
-- [ ] diagnostics/export UX.
+- [ ] **TASK-00683** firmware/start-screen visual language prototype;
+- [ ] **TASK-00684** boot-menu visual language prototype;
+- [ ] **TASK-00685** OS boot-splash prototype using real milestone vocabulary;
+- [ ] **TASK-00686** first-run flow;
+- [ ] **TASK-00687** login/session prototype only after account semantics are defined;
+- [ ] **TASK-00688** recovery UI information architecture;
+- [ ] **TASK-00689** diagnostics/export UX.
 
 These are product prototypes; firmware/bootloader mechanisms live in JoshBIOS and canonical OS mechanisms live in JoshOS.
 
 ## Stage 0E — prepare the Wayland port
 
-- [ ] separate shell state/model from DOM rendering;
-- [ ] document DOM-only assumptions;
-- [ ] conformance tests for window/focus/snap behaviour;
-- [ ] generate shared design values from one token source;
-- [ ] spike Smithay and wlroots in canonical JoshOS;
-- [ ] choose compositor toolkit by evidence;
-- [ ] port concepts rather than browser implementation details.
+- [ ] **TASK-00690** separate shell state/model from DOM rendering;
+- [ ] **TASK-00691** document DOM-only assumptions;
+- [ ] **TASK-00692** conformance tests for window/focus/snap behaviour;
+- [ ] **TASK-00693** generate shared design values from one token source;
+- [ ] **TASK-00694** spike Smithay and wlroots in canonical JoshOS;
+- [ ] **TASK-00695** choose compositor toolkit by evidence;
+- [ ] **TASK-00696** port concepts rather than browser implementation details.
 
 ## Stage 1 — canonical Linux-backed Josh desktop
 
