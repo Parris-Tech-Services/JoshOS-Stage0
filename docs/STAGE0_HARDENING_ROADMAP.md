@@ -59,11 +59,11 @@ Keep local ownership for:
 
 ## Required work
 
-- [ ] add explicit upstream commit/reference metadata;
-- [ ] classify every duplicated path as canonical-copy, local-fork or generated;
-- [ ] add a sync check for files meant to remain identical;
-- [ ] document intentional deltas;
-- [ ] stop manually copying files without recording provenance.
+- [ ] **UN-20261024-026-0062** add explicit upstream commit/reference metadata;
+- [ ] **UN-20261024-026-0063** classify every duplicated path as canonical-copy, local-fork or generated;
+- [ ] **UN-20261024-026-0064** add a sync check for files meant to remain identical;
+- [ ] **UN-20261024-026-0065** document intentional deltas;
+- [ ] **UN-20261024-026-0066** stop manually copying files without recording provenance.
 
 See `docs/UPSTREAM_SYNC.md`.
 
@@ -73,15 +73,15 @@ See `docs/UPSTREAM_SYNC.md`.
 
 The live ISO must build repeatably before adding features.
 
-- [ ] pin or record ArchISO base expectations;
-- [ ] remove/confine packages known to conflict with current releng profiles;
-- [ ] validate required overlay files;
-- [ ] fail clearly when packages disappear/rename;
-- [ ] checksum output;
-- [ ] record build metadata inside the image;
-- [ ] keep CI artefact retention policy explicit;
-- [ ] add a build-only quick validation path;
-- [ ] cache only where it cannot hide dependency drift.
+- [ ] **UN-20261024-026-0076** pin or record ArchISO base expectations;
+- [ ] **UN-20261024-026-0077** remove/confine packages known to conflict with current releng profiles;
+- [ ] **UN-20261024-026-0078** validate required overlay files;
+- [ ] **UN-20261024-026-0079** fail clearly when packages disappear/rename;
+- [ ] **UN-20261024-026-0080** checksum output;
+- [ ] **UN-20261024-026-0081** record build metadata inside the image;
+- [ ] **UN-20261024-026-0082** keep CI artefact retention policy explicit;
+- [ ] **UN-20261024-026-0083** add a build-only quick validation path;
+- [ ] **UN-20261024-026-0084** cache only where it cannot hide dependency drift.
 
 ## Build metadata
 
@@ -204,14 +204,14 @@ These concepts should map cleanly to future Wayland/native implementations.
 
 Before adding more visual features:
 
-- [ ] global launcher shortcut;
-- [ ] cycle windows;
-- [ ] move focus without mouse;
-- [ ] snap left/right/full;
-- [ ] close/minimise/maximise;
-- [ ] dock/launcher keyboard navigation;
-- [ ] Settings fully navigable;
-- [ ] terminal/editor usable without pointer.
+- [ ] **UN-20261024-026-0207** global launcher shortcut;
+- [ ] **UN-20261024-026-0208** cycle windows;
+- [ ] **UN-20261024-026-0209** move focus without mouse;
+- [ ] **UN-20261024-026-0210** snap left/right/full;
+- [ ] **UN-20261024-026-0211** close/minimise/maximise;
+- [ ] **UN-20261024-026-0212** dock/launcher keyboard navigation;
+- [ ] **UN-20261024-026-0213** Settings fully navigable;
+- [ ] **UN-20261024-026-0214** terminal/editor usable without pointer.
 
 Keyboard semantics should become part of the canonical product contract in AshFallen.
 
@@ -221,16 +221,16 @@ Keyboard semantics should become part of the canonical product contract in AshFa
 
 Use the browser environment to prototype semantics cheaply.
 
-- [ ] landmark roles;
-- [ ] dialog/window semantics;
-- [ ] focus trapping only where correct;
-- [ ] visible focus;
-- [ ] accessible names for controls;
-- [ ] logical reading order;
-- [ ] reduced motion;
-- [ ] high contrast experiments;
-- [ ] zoom/text scaling stress tests;
-- [ ] automated accessibility checks where useful.
+- [ ] **UN-20261024-026-0224** landmark roles;
+- [ ] **UN-20261024-026-0225** dialog/window semantics;
+- [ ] **UN-20261024-026-0226** focus trapping only where correct;
+- [ ] **UN-20261024-026-0227** visible focus;
+- [ ] **UN-20261024-026-0228** accessible names for controls;
+- [ ] **UN-20261024-026-0229** logical reading order;
+- [ ] **UN-20261024-026-0230** reduced motion;
+- [ ] **UN-20261024-026-0231** high contrast experiments;
+- [ ] **UN-20261024-026-0232** zoom/text scaling stress tests;
+- [ ] **UN-20261024-026-0233** automated accessibility checks where useful.
 
 Promote successful concepts upstream rather than keeping them Stage-0-only.
 
@@ -240,14 +240,14 @@ Promote successful concepts upstream rather than keeping them Stage-0-only.
 
 Extend carefully:
 
-- [ ] keyboard snapping;
-- [ ] quarter tiling only if useful;
-- [ ] workspaces only if product strategy adopts them;
-- [ ] multi-monitor simulation;
-- [ ] minimum/maximum geometry;
-- [ ] restore-state semantics;
-- [ ] fullscreen distinct from maximise;
-- [ ] modal/transient window model only when an app needs it.
+- [ ] **UN-20261024-026-0243** keyboard snapping;
+- [ ] **UN-20261024-026-0244** quarter tiling only if useful;
+- [ ] **UN-20261024-026-0245** workspaces only if product strategy adopts them;
+- [ ] **UN-20261024-026-0246** multi-monitor simulation;
+- [ ] **UN-20261024-026-0247** minimum/maximum geometry;
+- [ ] **UN-20261024-026-0248** restore-state semantics;
+- [ ] **UN-20261024-026-0249** fullscreen distinct from maximise;
+- [ ] **UN-20261024-026-0250** modal/transient window model only when an app needs it.
 
 Avoid copying every Windows/macOS behaviour by default.
 
@@ -370,13 +370,13 @@ Add schema validation and generated-file drift checks.
 
 Before production compositor work:
 
-- [ ] document each shell concept in implementation-neutral language;
-- [ ] identify DOM-only assumptions;
-- [ ] separate state/model from rendering;
-- [ ] record compositor protocol needs;
-- [ ] create a small conformance suite for the window model;
-- [ ] spike Smithay and wlroots in canonical AshFallen work;
-- [ ] port concepts, not browser implementation patterns.
+- [ ] **UN-20261024-026-0373** document each shell concept in implementation-neutral language;
+- [ ] **UN-20261024-026-0374** identify DOM-only assumptions;
+- [ ] **UN-20261024-026-0375** separate state/model from rendering;
+- [ ] **UN-20261024-026-0376** record compositor protocol needs;
+- [ ] **UN-20261024-026-0377** create a small conformance suite for the window model;
+- [ ] **UN-20261024-026-0378** spike Smithay and wlroots in canonical AshFallen work;
+- [ ] **UN-20261024-026-0379** port concepts, not browser implementation patterns.
 
 ---
 
